@@ -1,0 +1,30 @@
+{
+  "short_name": "Frontdoor Summary AI",
+  "name": "Frontdoor Summary AI Extension",
+  "manifest_version": 3,
+  "version": "1.0",
+  "icons": {
+    "16": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "custom-elements.min.js",
+        "highlighter.js",
+        "content.js"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [ "activeTab", "tabs"],
+  "host_permissions": [ "<all_urls>" ]
+}
